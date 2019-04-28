@@ -53,7 +53,7 @@ AddressManager *addressManager = nil;
         
         NSString *lat = [[wpt attributeForName:@"lat"] stringValue];
         NSString *lon = [[wpt attributeForName:@"lon"] stringValue];
-        NSLog(@"lat:%@==lon:%@",lat,lon);
+        NSLog(@"lon:%@==lat:%@",lon,lat);
         
     }
 }
