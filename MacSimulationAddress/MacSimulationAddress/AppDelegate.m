@@ -1,8 +1,8 @@
 //
 //  AppDelegate.m
-//  SimulationAddress
+//  MacSimulationAddress
 //
-//  Created by 尹华东 on 2019/4/28.
+//  Created by 尹华东 on 2019/4/29.
 //  Copyright © 2019年 yinhuadong. All rights reserved.
 //
 
@@ -11,14 +11,13 @@
 
 @interface AppDelegate ()<CLLocationManagerDelegate>
 @property (nonatomic,strong)CLLocationManager *locationManager;
+
 @end
 
 @implementation AppDelegate
 
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    // Insert code here to initialize your application
     if (![CLLocationManager locationServicesEnabled]) {
         [self showAlert:@"去设置中允许此应用定位授权"];
     }
@@ -36,13 +35,16 @@
      */
     // 精确度越高, 越耗电, 定位时间越长
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [self.locationManager requestAlwaysAuthorization];
-    [self.locationManager requestWhenInUseAuthorization];
     
     [self.locationManager startUpdatingLocation];
     
-    return YES;
 }
+
+
+- (void)applicationWillTerminate:(NSNotification *)aNotification {
+    // Insert code here to tear down your application
+}
+
 
 /**
  *  更新到位置之后调用
@@ -59,7 +61,7 @@
     
     // 打印位置信息
     NSLog(@"GCJ-02: 经度：%.6f, 纬度：%.6f", location.coordinate.longitude, location.coordinate.latitude);
-    
+
     // 停止更新
     [manager stopUpdatingLocation];
 }
@@ -77,7 +79,7 @@
         case kCLAuthorizationStatusNotDetermined:
         {
             NSLog(@"用户还未决定");
-
+            
             break;
         }
             // 问受限
@@ -85,7 +87,7 @@
         {
             NSLog(@"访问受限");
             [self showAlert:@"去设置中允许此应用定位授权"];
-
+            
             break;
         }
             // 定位关闭时和对此APP授权为never时调用
@@ -109,50 +111,21 @@
             NSLog(@"获取前后台定位授权");
             break;
         }
-            // 获得前台定位授权
-        case kCLAuthorizationStatusAuthorizedWhenInUse:
-        {
-            NSLog(@"获得前台定位授权");
-            break;
-        }
         default:
             break;
     }
 }
 
 - (void)showAlert:(NSString *)string{
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:string preferredStyle:(UIAlertControllerStyleAlert)];
-    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+    
+    NSAlert *alert = [[NSAlert alloc]init];
+    alert.messageText = string;
+    [alert addButtonWithTitle:@"确定"];
+    
+    NSWindowController *window = [[NSStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialController];
+    [alert beginSheetModalForWindow:window.window completionHandler:^(NSModalResponse returnCode) {
         
-    }]];
-    [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+    }];
 }
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-}
-
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-}
-
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
 
 @end
