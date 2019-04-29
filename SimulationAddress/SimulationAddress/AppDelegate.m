@@ -62,7 +62,7 @@
     CLLocation *location = locations.lastObject;
     
     // 打印位置信息
-    NSLog(@"经度：%.6f, 纬度：%.6f", location.coordinate.longitude, location.coordinate.latitude);
+    NSLog(@"GCJ-02: 经度：%.6f, 纬度：%.6f", location.coordinate.longitude, location.coordinate.latitude);
     
     // 停止更新
     [manager stopUpdatingLocation];

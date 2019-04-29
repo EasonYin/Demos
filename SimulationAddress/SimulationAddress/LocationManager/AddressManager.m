@@ -30,15 +30,16 @@ AddressManager *addressManager = nil;
 
 - (void)parserGPX{
     
-    NSData *tempXmlData = [self readFileData:@"test.gpx"];
-    if (!tempXmlData) {
-        self.xmlFilePath = [[NSBundle mainBundle] pathForResource:@"test.gpx" ofType:nil];
-        self.xmlData = [NSData dataWithContentsOfFile:self.xmlFilePath];
-    }
-    else{
+//    NSData *tempXmlData = [self readFileData:@"test.gpx"];
+//    if (!tempXmlData) {
+//        self.xmlFilePath = [[NSBundle mainBundle] pathForResource:@"test.gpx" ofType:nil];
+//        self.xmlData = [NSData dataWithContentsOfFile:self.xmlFilePath];
+//    }
+//    else{
         self.xmlFilePath = [[self GPXPath] stringByAppendingPathComponent:@"test.gpx"];
         self.xmlData = [self readFileData:@"test.gpx"];
-    }
+//    }
+    NSLog(@"FilePath: %@",self.xmlFilePath);
     
     //使用NSData对象初始化
     self.doc = [[GDataXMLDocument alloc] initWithData:self.xmlData error:nil];
@@ -53,34 +54,37 @@ AddressManager *addressManager = nil;
         
         NSString *lat = [[wpt attributeForName:@"lat"] stringValue];
         NSString *lon = [[wpt attributeForName:@"lon"] stringValue];
-        NSLog(@"lon:%@==lat:%@",lon,lat);
-        
+        NSLog(@"文件中坐标 lon:%@==lat:%@",lon,lat);
     }
 }
 
-- (void)setGPXwithLat:(NSString *)lat lon:(NSString *)lon{
-    if (lat.length > 0 && lon.length > 0) {
+- (void)setGPXwithLocation:(CLLocationCoordinate2D)location{
+    
+    NSLog(@"设置前的坐标 lon:%.6f==lat:%.6f",location.longitude,location.latitude);
+
+    //将坐标转换
+    CLLocationCoordinate2D wgs84 = [EYLocationConverter gcj02ToWgs84:location];
+    
+    NSLog(@"设置后的坐标 lon:%.6f==lat:%.6f",wgs84.longitude,wgs84.latitude);
+
+    //获取根节点
+    GDataXMLElement *rootElement = [self.doc rootElement];
+    
+    //获取根节点下的节点
+    NSArray *wpts = [rootElement elementsForName:@"wpt"];
+    
+    for (GDataXMLElement *wpt in wpts) {
         
-        //获取根节点（Users）
-        GDataXMLElement *rootElement = [self.doc rootElement];
-        
-        //获取根节点下的节点（User）
-        NSArray *wpts = [rootElement elementsForName:@"wpt"];
-        
-        for (GDataXMLElement *wpt in wpts) {
-            
-            [[wpt attributeForName:@"lat"] setStringValue:lat];
-            [[wpt attributeForName:@"lon"] setStringValue:lon];
-            
-        }
-        
-        GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithRootElement:rootElement];
-        NSData *xmlData = [doc XMLData];
-        NSString *xmlStrrss = [[NSString alloc] initWithData:xmlData encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",xmlStrrss);
-        [self saveToDirectory:[self GPXPath] data:xmlData name:@"test.gpx"];
+        [[wpt attributeForName:@"lon"] setStringValue:[NSString stringWithFormat:@"%.6f", wgs84.longitude]];
+        [[wpt attributeForName:@"lat"] setStringValue:[NSString stringWithFormat:@"%.6f", wgs84.latitude]];
         
     }
+    
+    GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithRootElement:rootElement];
+    NSData *xmlData = [doc XMLData];
+//    NSString *xmlStrrss = [[NSString alloc] initWithData:xmlData encoding:NSUTF8StringEncoding];
+//    NSLog(@"%@",xmlStrrss);
+    [self saveToDirectory:[self GPXPath] data:xmlData name:@"test.gpx"];
 }
 
 #pragma mark -

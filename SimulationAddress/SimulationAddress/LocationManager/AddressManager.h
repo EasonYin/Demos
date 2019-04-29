@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EYLocationConverter.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AddressManager : NSObject
 + (AddressManager *)shared;
 - (void)parserGPX;
-- (void)setGPXwithLat:(NSString *)lat lon:(NSString *)lon;
+- (void)setGPXwithLocation:(CLLocationCoordinate2D)location;
 @end
 
 NS_ASSUME_NONNULL_END

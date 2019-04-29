@@ -53,7 +53,7 @@
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:(UIAlertControllerStyleActionSheet)];
     [alert addAction:[UIAlertAction actionWithTitle:@"设置虚拟位置" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-        [[AddressManager shared] setGPXwithLat:[NSString stringWithFormat:@"%.6f",view.annotation.coordinate.latitude] lon:[NSString stringWithFormat:@"%.6f",view.annotation.coordinate.longitude]];
+        [[AddressManager shared] setGPXwithLocation:view.annotation.coordinate];
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"清除标记" style:(UIAlertActionStyleDestructive) handler:^(UIAlertAction * _Nonnull action) {
         [mapView removeAnnotation:view.annotation];

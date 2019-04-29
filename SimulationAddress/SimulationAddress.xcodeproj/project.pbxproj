@@ -18,6 +18,8 @@
 		9223D426227558CF00211B4F /* AddressManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9223D425227558CF00211B4F /* AddressManager.m */; };
 		9223D42B2275701A00211B4F /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9223D4272275591400211B4F /* libxml2.2.tbd */; };
 		9223D42E227570D700211B4F /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9223D42D227570D700211B4F /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9223D4342276918B00211B4F /* EYLocationConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9223D4332276918B00211B4F /* EYLocationConverter.m */; };
+		9223D436227695CE00211B4F /* Company.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9223D435227695CE00211B4F /* Company.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,9 @@
 		9223D4272275591400211B4F /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		9223D42C227570D700211B4F /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
 		9223D42D227570D700211B4F /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
+		9223D4322276918B00211B4F /* EYLocationConverter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EYLocationConverter.h; sourceTree = "<group>"; };
+		9223D4332276918B00211B4F /* EYLocationConverter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EYLocationConverter.m; sourceTree = "<group>"; };
+		9223D435227695CE00211B4F /* Company.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Company.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +78,7 @@
 		9223D404227549D400211B4F /* SimulationAddress */ = {
 			isa = PBXGroup;
 			children = (
-				9223D4202275587100211B4F /* XML */,
+				9223D4202275587100211B4F /* LocationManager */,
 				9223D405227549D400211B4F /* AppDelegate.h */,
 				9223D406227549D400211B4F /* AppDelegate.m */,
 				9223D408227549D400211B4F /* ViewController.h */,
@@ -96,16 +101,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9223D4202275587100211B4F /* XML */ = {
+		9223D4202275587100211B4F /* LocationManager */ = {
 			isa = PBXGroup;
 			children = (
 				9223D42C227570D700211B4F /* GDataXMLNode.h */,
 				9223D42D227570D700211B4F /* GDataXMLNode.m */,
 				9223D41B22754AF600211B4F /* test.gpx */,
+				9223D435227695CE00211B4F /* Company.gpx */,
 				9223D424227558CF00211B4F /* AddressManager.h */,
 				9223D425227558CF00211B4F /* AddressManager.m */,
+				9223D4322276918B00211B4F /* EYLocationConverter.h */,
+				9223D4332276918B00211B4F /* EYLocationConverter.m */,
 			);
-			path = XML;
+			path = LocationManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +181,7 @@
 				9223D412227549D500211B4F /* LaunchScreen.storyboard in Resources */,
 				9223D41C22754AF600211B4F /* test.gpx in Resources */,
 				9223D40F227549D500211B4F /* Assets.xcassets in Resources */,
+				9223D436227695CE00211B4F /* Company.gpx in Resources */,
 				9223D40D227549D400211B4F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,6 +198,7 @@
 				9223D415227549D500211B4F /* main.m in Sources */,
 				9223D407227549D400211B4F /* AppDelegate.m in Sources */,
 				9223D42E227570D700211B4F /* GDataXMLNode.m in Sources */,
+				9223D4342276918B00211B4F /* EYLocationConverter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
