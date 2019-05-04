@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92085FB1A4BD537745C62B24 /* libPods-MacSimulationAddress.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6690FD2468FB7457CD75636 /* libPods-MacSimulationAddress.a */; };
 		9223D4452276DA2E00211B4F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9223D4442276DA2E00211B4F /* AppDelegate.m */; };
 		9223D4482276DA2E00211B4F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9223D4472276DA2E00211B4F /* ViewController.m */; };
 		9223D44A2276DA3000211B4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9223D4492276DA3000211B4F /* Assets.xcassets */; };
 		9223D44D2276DA3000211B4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9223D44B2276DA3000211B4F /* Main.storyboard */; };
 		9223D4502276DA3000211B4F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9223D44F2276DA3000211B4F /* main.m */; };
-		9223D45B2276E8D800211B4F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9223D45A2276E8D800211B4F /* MapKit.framework */; };
 		9223D45E22770B6500211B4F /* EYLocationConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9223D45D22770B6500211B4F /* EYLocationConverter.m */; };
 /* End PBXBuildFile section */
 
@@ -27,9 +27,11 @@
 		9223D44E2276DA3000211B4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9223D44F2276DA3000211B4F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9223D4512276DA3000211B4F /* MacSimulationAddress.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacSimulationAddress.entitlements; sourceTree = "<group>"; };
-		9223D45A2276E8D800211B4F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9223D45C22770B6500211B4F /* EYLocationConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EYLocationConverter.h; sourceTree = "<group>"; };
 		9223D45D22770B6500211B4F /* EYLocationConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EYLocationConverter.m; sourceTree = "<group>"; };
+		D6690FD2468FB7457CD75636 /* libPods-MacSimulationAddress.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MacSimulationAddress.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D86BD5C86CA603DB244CD32C /* Pods-MacSimulationAddress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacSimulationAddress.release.xcconfig"; path = "Pods/Target Support Files/Pods-MacSimulationAddress/Pods-MacSimulationAddress.release.xcconfig"; sourceTree = "<group>"; };
+		F7B07E34C24576D94F73819D /* Pods-MacSimulationAddress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacSimulationAddress.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MacSimulationAddress/Pods-MacSimulationAddress.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,19 +39,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9223D45B2276E8D800211B4F /* MapKit.framework in Frameworks */,
+				92085FB1A4BD537745C62B24 /* libPods-MacSimulationAddress.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		215D848E3A67528AC41E1677 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F7B07E34C24576D94F73819D /* Pods-MacSimulationAddress.debug.xcconfig */,
+				D86BD5C86CA603DB244CD32C /* Pods-MacSimulationAddress.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9223D4372276DA2E00211B4F = {
 			isa = PBXGroup;
 			children = (
 				9223D4422276DA2E00211B4F /* MacSimulationAddress */,
 				9223D4412276DA2E00211B4F /* Products */,
 				9223D4572276E63300211B4F /* Frameworks */,
+				215D848E3A67528AC41E1677 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,7 +93,7 @@
 		9223D4572276E63300211B4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9223D45A2276E8D800211B4F /* MapKit.framework */,
+				D6690FD2468FB7457CD75636 /* libPods-MacSimulationAddress.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -102,9 +114,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9223D4542276DA3000211B4F /* Build configuration list for PBXNativeTarget "MacSimulationAddress" */;
 			buildPhases = (
+				702C09CFA34F3F8F34CDA7F6 /* [CP] Check Pods Manifest.lock */,
 				9223D43C2276DA2E00211B4F /* Sources */,
 				9223D43D2276DA2E00211B4F /* Frameworks */,
 				9223D43E2276DA2E00211B4F /* Resources */,
+				C21DEAAD717AED02990FF59C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -128,7 +142,7 @@
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
 							com.apple.Maps.Mac = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Sandbox = {
 								enabled = 1;
@@ -166,6 +180,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		702C09CFA34F3F8F34CDA7F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MacSimulationAddress-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C21DEAAD717AED02990FF59C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MacSimulationAddress/Pods-MacSimulationAddress-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MASShortcut/MASShortcut.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MASShortcut.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MacSimulationAddress/Pods-MacSimulationAddress-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9223D43C2276DA2E00211B4F /* Sources */ = {
@@ -306,18 +367,20 @@
 		};
 		9223D4552276DA3000211B4F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7B07E34C24576D94F73819D /* Pods-MacSimulationAddress.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MacSimulationAddress/MacSimulationAddress.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = UB7E55V2KX;
+				DEVELOPMENT_TEAM = CTM8P49F3V;
 				INFOPLIST_FILE = MacSimulationAddress/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jd.MacSimulationAddress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -326,18 +389,20 @@
 		};
 		9223D4562276DA3000211B4F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D86BD5C86CA603DB244CD32C /* Pods-MacSimulationAddress.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MacSimulationAddress/MacSimulationAddress.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = UB7E55V2KX;
+				DEVELOPMENT_TEAM = CTM8P49F3V;
 				INFOPLIST_FILE = MacSimulationAddress/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jd.MacSimulationAddress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

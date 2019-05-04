@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <MapKit/MapKit.h>
 #import "EYLocationConverter.h"
+#import <MASShortcut/Shortcut.h>
 
 @interface ViewController ()<MKMapViewDelegate>
 @property (weak) IBOutlet MKMapView *mapView;
@@ -53,15 +54,16 @@
         
         //左边
         customPinView.leftCalloutAccessoryView = nil;
-
+        
         //右边
-//        NSButton *btn = [NSButton buttonWithTitle:@"复制坐标" target:self action:@selector(copyAnnotation:)];
-//        customPinView.rightCalloutAccessoryView = btn;
-        customPinView.rightCalloutAccessoryView = nil;
+        NSButton *btn = [NSButton buttonWithTitle:@"复制坐标" target:self action:@selector(copyAnnotation:)];
+        customPinView.rightCalloutAccessoryView = btn;
+//        customPinView.rightCalloutAccessoryView = nil;
 
         NSTextView *text = [[NSTextView alloc]initWithFrame:CGRectMake(0, 0, 200, 40)];
         text.backgroundColor = [NSColor clearColor];
-        text.string = [NSString stringWithFormat:@"lat=\"%.6f\" lon=\"%.6f\"",self.coordinate.latitude,self.coordinate.longitude];;
+        CLLocationCoordinate2D wgs84 = [EYLocationConverter gcj02ToWgs84:annotation.coordinate];
+        text.string = [NSString stringWithFormat:@"lat=\"%.6f\" lon=\"%.6f\"",wgs84.latitude,wgs84.longitude];;
         customPinView.detailCalloutAccessoryView = text;
         
         return customPinView;
@@ -74,8 +76,9 @@
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
     
     
-//    CLLocationCoordinate2D wgs84 = [EYLocationConverter gcj02ToWgs84:view.annotation.coordinate];
-//
+    CLLocationCoordinate2D wgs84 = [EYLocationConverter gcj02ToWgs84:view.annotation.coordinate];
+    self.coordinate = wgs84;
+
 //    NSAlert *alert = [[NSAlert alloc]init];
 //    alert.messageText = [NSString stringWithFormat:@"lat=\"%.6f\" lon=\"%.6f\"",wgs84.latitude,wgs84.longitude];
 //    [alert addButtonWithTitle:@"确定"];
@@ -126,11 +129,16 @@
     
 }
 
-//- (void)copyAnnotation:(id)sender{
-//
-//    NSString *copyString = [NSString stringWithFormat:@"lat=\"%.6f\" lon=\"%.6f\"",self.coordinate.latitude,self.coordinate.longitude];
-//    [[NSPasteboard pasteboardWithUniqueName] setString:copyString forType:NSPasteboardTypeString];
-//
-//}
+- (void)copyAnnotation:(NSButton *)sender{
+    
+    NSString *copyString = [NSString stringWithFormat:@"lat=\"%.6f\" lon=\"%.6f\"",self.coordinate.latitude,self.coordinate.longitude];
+    
+    NSPasteboard *aPasteboard = [NSPasteboard generalPasteboard]; //获取粘贴板对象
+    [aPasteboard clearContents]; //清空粘贴板之前的内容
+    NSData *aData = [copyString dataUsingEncoding:NSUTF8StringEncoding];
+    [aPasteboard setData:aData forType:NSPasteboardTypeString];
+    
+}
+
 
 @end
