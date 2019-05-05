@@ -14,6 +14,7 @@
 		9223D44D2276DA3000211B4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9223D44B2276DA3000211B4F /* Main.storyboard */; };
 		9223D4502276DA3000211B4F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9223D44F2276DA3000211B4F /* main.m */; };
 		9223D45E22770B6500211B4F /* EYLocationConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9223D45D22770B6500211B4F /* EYLocationConverter.m */; };
+		9242CB9D227E87F100355585 /* EYWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9242CB9C227E87F100355585 /* EYWindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		9223D4512276DA3000211B4F /* MacSimulationAddress.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacSimulationAddress.entitlements; sourceTree = "<group>"; };
 		9223D45C22770B6500211B4F /* EYLocationConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EYLocationConverter.h; sourceTree = "<group>"; };
 		9223D45D22770B6500211B4F /* EYLocationConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EYLocationConverter.m; sourceTree = "<group>"; };
+		9242CB9B227E87F100355585 /* EYWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EYWindowController.h; sourceTree = "<group>"; };
+		9242CB9C227E87F100355585 /* EYWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EYWindowController.m; sourceTree = "<group>"; };
 		D6690FD2468FB7457CD75636 /* libPods-MacSimulationAddress.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MacSimulationAddress.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D86BD5C86CA603DB244CD32C /* Pods-MacSimulationAddress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacSimulationAddress.release.xcconfig"; path = "Pods/Target Support Files/Pods-MacSimulationAddress/Pods-MacSimulationAddress.release.xcconfig"; sourceTree = "<group>"; };
 		F7B07E34C24576D94F73819D /* Pods-MacSimulationAddress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacSimulationAddress.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MacSimulationAddress/Pods-MacSimulationAddress.debug.xcconfig"; sourceTree = "<group>"; };
@@ -79,6 +82,8 @@
 				9223D45F22770B7100211B4F /* LocationManager */,
 				9223D4432276DA2E00211B4F /* AppDelegate.h */,
 				9223D4442276DA2E00211B4F /* AppDelegate.m */,
+				9242CB9B227E87F100355585 /* EYWindowController.h */,
+				9242CB9C227E87F100355585 /* EYWindowController.m */,
 				9223D4462276DA2E00211B4F /* ViewController.h */,
 				9223D4472276DA2E00211B4F /* ViewController.m */,
 				9223D4492276DA3000211B4F /* Assets.xcassets */,
@@ -233,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9242CB9D227E87F100355585 /* EYWindowController.m in Sources */,
 				9223D4482276DA2E00211B4F /* ViewController.m in Sources */,
 				9223D4502276DA3000211B4F /* main.m in Sources */,
 				9223D4452276DA2E00211B4F /* AppDelegate.m in Sources */,

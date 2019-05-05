@@ -5,9 +5,8 @@
      Provide one or more waypoints containing a latitude/longitude pair. If you provide one
      waypoint, Xcode will simulate that specific location. If you provide multiple waypoints,
      Xcode will simulate a route visiting each waypoint.
-     
      -->
-    <wpt lat="40.011382" lon="116.386197">
+    <wpt lat="40.010548" lon="116.387407">
         <name>奥体公园</name>
         
         <!--

@@ -20,11 +20,10 @@
 		9223D42E227570D700211B4F /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9223D42D227570D700211B4F /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9223D4342276918B00211B4F /* EYLocationConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9223D4332276918B00211B4F /* EYLocationConverter.m */; };
 		9223D436227695CE00211B4F /* Company.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9223D435227695CE00211B4F /* Company.gpx */; };
-		9223D4622278028C00211B4F /* BJat.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9223D4612278028C00211B4F /* BJat.gpx */; };
 		9223D46422782E0400211B4F /* HZxh.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9223D46322782E0400211B4F /* HZxh.gpx */; };
+		9242CB9A227E80C900355585 /* coco.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9242CB99227E80C900355585 /* coco.gpx */; };
 		C106FB4A227A7FCF00A8F950 /* YYS.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C106FB49227A7FCF00A8F950 /* YYS.gpx */; };
-		C106FB4C227B0A3A00A8F950 /* BJat2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C106FB4B227B0A3A00A8F950 /* BJat2.gpx */; };
-		C106FB4E227B272E00A8F950 /* Location1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C106FB4D227B272E00A8F950 /* Location1.gpx */; };
+		C106FB4C227B0A3A00A8F950 /* BJat.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C106FB4B227B0A3A00A8F950 /* BJat.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,11 +48,10 @@
 		9223D4332276918B00211B4F /* EYLocationConverter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EYLocationConverter.m; sourceTree = "<group>"; };
 		9223D435227695CE00211B4F /* Company.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Company.gpx; sourceTree = "<group>"; };
 		9223D4602277FDA400211B4F /* BJbh.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BJbh.gpx; sourceTree = "<group>"; };
-		9223D4612278028C00211B4F /* BJat.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BJat.gpx; sourceTree = "<group>"; };
 		9223D46322782E0400211B4F /* HZxh.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HZxh.gpx; sourceTree = "<group>"; };
+		9242CB99227E80C900355585 /* coco.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = coco.gpx; sourceTree = "<group>"; };
 		C106FB49227A7FCF00A8F950 /* YYS.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = YYS.gpx; sourceTree = "<group>"; };
-		C106FB4B227B0A3A00A8F950 /* BJat2.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BJat2.gpx; sourceTree = "<group>"; };
-		C106FB4D227B272E00A8F950 /* Location1.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location1.gpx; sourceTree = "<group>"; };
+		C106FB4B227B0A3A00A8F950 /* BJat.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BJat.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,13 +116,12 @@
 				9223D42C227570D700211B4F /* GDataXMLNode.h */,
 				9223D42D227570D700211B4F /* GDataXMLNode.m */,
 				9223D41B22754AF600211B4F /* test.gpx */,
-				C106FB4D227B272E00A8F950 /* Location1.gpx */,
-				C106FB4B227B0A3A00A8F950 /* BJat2.gpx */,
+				C106FB4B227B0A3A00A8F950 /* BJat.gpx */,
 				C106FB49227A7FCF00A8F950 /* YYS.gpx */,
-				9223D4612278028C00211B4F /* BJat.gpx */,
 				9223D46322782E0400211B4F /* HZxh.gpx */,
 				9223D4602277FDA400211B4F /* BJbh.gpx */,
 				9223D435227695CE00211B4F /* Company.gpx */,
+				9242CB99227E80C900355585 /* coco.gpx */,
 				9223D424227558CF00211B4F /* AddressManager.h */,
 				9223D425227558CF00211B4F /* AddressManager.m */,
 				9223D4322276918B00211B4F /* EYLocationConverter.h */,
@@ -197,11 +194,10 @@
 			files = (
 				9223D412227549D500211B4F /* LaunchScreen.storyboard in Resources */,
 				C106FB4A227A7FCF00A8F950 /* YYS.gpx in Resources */,
-				C106FB4E227B272E00A8F950 /* Location1.gpx in Resources */,
+				9242CB9A227E80C900355585 /* coco.gpx in Resources */,
 				9223D46422782E0400211B4F /* HZxh.gpx in Resources */,
 				9223D41C22754AF600211B4F /* test.gpx in Resources */,
-				9223D4622278028C00211B4F /* BJat.gpx in Resources */,
-				C106FB4C227B0A3A00A8F950 /* BJat2.gpx in Resources */,
+				C106FB4C227B0A3A00A8F950 /* BJat.gpx in Resources */,
 				9223D40F227549D500211B4F /* Assets.xcassets in Resources */,
 				9223D436227695CE00211B4F /* Company.gpx in Resources */,
 				9223D40D227549D400211B4F /* Main.storyboard in Resources */,
