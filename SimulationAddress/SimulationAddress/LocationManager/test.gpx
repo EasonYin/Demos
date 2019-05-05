@@ -5,7 +5,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
     
-    <wpt lat="39.935636" lon="116.389336">
+<!--    <wpt lat="42.352783" lon="109.874242">-->
+    <wpt lat="39.915217" lon="116.389811">
     </wpt>
 
 </gpx>
