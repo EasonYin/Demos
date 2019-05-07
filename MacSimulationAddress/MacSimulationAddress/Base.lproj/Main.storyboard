@@ -753,6 +753,23 @@
                                         </connections>
                                     </button>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="886FBAA9-4C46-4E2C-929F-E84AA44E894D" label="Custom View" paletteLabel="Custom View" sizingBehavior="auto" id="3m0-Q1-Dwg">
+                                    <nil key="toolTip"/>
+                                    <segmentedControl key="view" verticalHuggingPriority="750" id="zKz-qM-8YQ">
+                                        <rect key="frame" x="0.0" y="14" width="91" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="yOg-aX-BLD">
+                                            <font key="font" metaFont="system"/>
+                                            <segments>
+                                                <segment label="普通" width="43" selected="YES"/>
+                                                <segment label="卫星" width="42" tag="1"/>
+                                            </segments>
+                                        </segmentedCell>
+                                        <connections>
+                                            <action selector="segmentControl:" target="B8D-0N-5wS" id="fC8-81-mnL"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="nMC-2L-ZYw"/>
@@ -760,6 +777,7 @@
                                 <toolbarItem reference="Owl-0T-dHD"/>
                                 <toolbarItem reference="qgv-Qf-Grc"/>
                                 <toolbarItem reference="lGE-BJ-5AE"/>
+                                <toolbarItem reference="3m0-Q1-Dwg"/>
                             </defaultToolbarItems>
                         </toolbar>
                         <connections>

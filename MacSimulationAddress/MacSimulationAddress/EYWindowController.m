@@ -45,4 +45,11 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"clearSearchText" object:sender.stringValue];
 }
 
+- (IBAction)segmentControl:(NSSegmentedControl *)sender {
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"segmentControl" object:@(sender.selectedSegment)];
+    
+}
+
+
 @end

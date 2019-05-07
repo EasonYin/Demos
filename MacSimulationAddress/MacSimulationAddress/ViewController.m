@@ -68,6 +68,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(findMe:) name:@"findMe" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchText:) name:@"searchText" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clearSearchText:) name:@"clearSearchText" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeMapShowType:) name:@"segmentControl" object:nil];
 }
 
 #pragma mark - MKMapViewDelegate
@@ -246,6 +247,23 @@
     [self.dataArray removeAllObjects];
     [self hideTableView];
     
+}
+
+- (void)changeMapShowType:(NSNotification *)notification{
+    
+    NSLog(@"changeMapShowType:%@",notification.object);
+    NSInteger selectType = ((NSNumber*)notification.object).integerValue;
+    
+    if (selectType == 0) {
+        //普通
+        self.mapView.mapType = MKMapTypeStandard;
+        self.mapView.showsTraffic = YES;
+        self.mapView.showsBuildings = YES;
+    }
+    else if (selectType == 1){
+        //卫星
+        self.mapView.mapType = MKMapTypeHybridFlyover;
+    }
 }
 
 #pragma mark - tableView
