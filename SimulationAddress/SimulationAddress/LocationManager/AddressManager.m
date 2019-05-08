@@ -65,7 +65,9 @@ AddressManager *addressManager = nil;
     //将坐标转换
     CLLocationCoordinate2D wgs84 = [EYLocationConverter gcj02ToWgs84:location];
     
-    NSLog(@"设置后的坐标 lon:%.6f==lat:%.6f",wgs84.longitude,wgs84.latitude);
+    //<wpt lat="43.825972" lon="125.426993">
+    NSString *showString = [NSString stringWithFormat:@"<wpt lat=\"%.6f\" lon=\"%.6f\">",wgs84.latitude,wgs84.longitude];
+    NSLog(@"设置后的坐标:\n%@",showString);
 
     //获取根节点
     GDataXMLElement *rootElement = [self.doc rootElement];
