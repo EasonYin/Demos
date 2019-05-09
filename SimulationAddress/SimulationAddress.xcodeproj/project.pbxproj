@@ -23,6 +23,7 @@
 		9223D46422782E0400211B4F /* HZxh.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9223D46322782E0400211B4F /* HZxh.gpx */; };
 		9242CB9A227E80C900355585 /* coco.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9242CB99227E80C900355585 /* coco.gpx */; };
 		9263E719228292C50040BD11 /* LT.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9263E718228292C50040BD11 /* LT.gpx */; };
+		9263E71F2282ED8E0040BD11 /* 颜如玉.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9263E71E2282ED8E0040BD11 /* 颜如玉.gpx */; };
 		C106FB4C227B0A3A00A8F950 /* BJat.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C106FB4B227B0A3A00A8F950 /* BJat.gpx */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		9223D46322782E0400211B4F /* HZxh.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HZxh.gpx; sourceTree = "<group>"; };
 		9242CB99227E80C900355585 /* coco.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = coco.gpx; sourceTree = "<group>"; };
 		9263E718228292C50040BD11 /* LT.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LT.gpx; sourceTree = "<group>"; };
+		9263E71E2282ED8E0040BD11 /* 颜如玉.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "颜如玉.gpx"; sourceTree = "<group>"; };
 		C106FB4B227B0A3A00A8F950 /* BJat.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BJat.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +118,7 @@
 				9223D42C227570D700211B4F /* GDataXMLNode.h */,
 				9223D42D227570D700211B4F /* GDataXMLNode.m */,
 				9223D41B22754AF600211B4F /* test.gpx */,
+				9263E71E2282ED8E0040BD11 /* 颜如玉.gpx */,
 				9263E718228292C50040BD11 /* LT.gpx */,
 				C106FB4B227B0A3A00A8F950 /* BJat.gpx */,
 				9223D46322782E0400211B4F /* HZxh.gpx */,
@@ -193,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9223D412227549D500211B4F /* LaunchScreen.storyboard in Resources */,
+				9263E71F2282ED8E0040BD11 /* 颜如玉.gpx in Resources */,
 				9242CB9A227E80C900355585 /* coco.gpx in Resources */,
 				9223D46422782E0400211B4F /* HZxh.gpx in Resources */,
 				9223D41C22754AF600211B4F /* test.gpx in Resources */,

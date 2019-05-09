@@ -57,7 +57,7 @@
     //设置地区: zh-中国
     self.pedometerStartDatePicker.locale = [NSLocale localeWithLocaleIdentifier:@"zh"];
     //设置日期模式(Displays month, day, and year depending on the locale setting)
-    self.pedometerStartDatePicker.datePickerMode = UIDatePickerModeDateAndTime;
+    self.pedometerStartDatePicker.datePickerMode = UIDatePickerModeDate;
     // 设置当前显示时间
     [self.pedometerStartDatePicker setDate:[NSDate date] animated:YES];
     // 设置显示最大时间（此处为当前时间）
@@ -69,7 +69,7 @@
     //设置地区: zh-中国
     self.pedometerEndDatePicker.locale = [NSLocale localeWithLocaleIdentifier:@"zh"];
     //设置日期模式(Displays month, day, and year depending on the locale setting)
-    self.pedometerEndDatePicker.datePickerMode = UIDatePickerModeDateAndTime;
+    self.pedometerEndDatePicker.datePickerMode = UIDatePickerModeDate;
     // 设置当前显示时间
     [self.pedometerEndDatePicker setDate:[NSDate date] animated:YES];
     // 设置显示最大时间（此处为当前时间）
@@ -173,10 +173,20 @@
 }
 
 #pragma mark - Action
+- (void)showAlert:(NSString *)string{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:string preferredStyle:(UIAlertControllerStyleAlert)];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    [self presentViewController:alert animated:YES completion:^{
+        
+    }];
+}
 
 - (IBAction)startMonitor:(id)sender {
     if (!self.pedometerStartDate) {
         NSLog(@"请设置开始时间");
+        [self showAlert:@"请设置开始时间"];
         return;
     }
     titleLabel.text = @"运动数据：监听中";
@@ -189,8 +199,9 @@
 }
 
 - (IBAction)getData:(id)sender {
-    if (self.pedometerStartDate.description.length <= 0 || self.pedometerEndDate.description.length <= 0) {
+    if (!self.pedometerStartDate || !self.pedometerEndDate) {
         NSLog(@"请设置开始时间或结束时间");
+        [self showAlert:@"请设置开始时间或结束时间"];
         return;
     }
     titleLabel.text = @"运动数据：";

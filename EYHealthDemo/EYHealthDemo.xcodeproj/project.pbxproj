@@ -17,6 +17,7 @@
 		9263E70522816DCA0040BD11 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9263E70422816DCA0040BD11 /* HealthKit.framework */; };
 		9263E708228172F10040BD11 /* EYHealthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9263E707228172F10040BD11 /* EYHealthManager.m */; };
 		9263E71D2282CE200040BD11 /* EYPedometerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9263E71C2282CE200040BD11 /* EYPedometerViewController.m */; };
+		9263E7222283C35F0040BD11 /* EYHealthKitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9263E7212283C35F0040BD11 /* EYHealthKitViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		9263E707228172F10040BD11 /* EYHealthManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EYHealthManager.m; sourceTree = "<group>"; };
 		9263E71B2282CE200040BD11 /* EYPedometerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EYPedometerViewController.h; sourceTree = "<group>"; };
 		9263E71C2282CE200040BD11 /* EYPedometerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EYPedometerViewController.m; sourceTree = "<group>"; };
+		9263E7202283C35F0040BD11 /* EYHealthKitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EYHealthKitViewController.h; sourceTree = "<group>"; };
+		9263E7212283C35F0040BD11 /* EYHealthKitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EYHealthKitViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +83,8 @@
 				9263E6EE22816B0E0040BD11 /* ViewController.m */,
 				9263E71B2282CE200040BD11 /* EYPedometerViewController.h */,
 				9263E71C2282CE200040BD11 /* EYPedometerViewController.m */,
+				9263E7202283C35F0040BD11 /* EYHealthKitViewController.h */,
+				9263E7212283C35F0040BD11 /* EYHealthKitViewController.m */,
 				9263E6F022816B0E0040BD11 /* Main.storyboard */,
 				9263E6F322816B100040BD11 /* Assets.xcassets */,
 				9263E6F522816B100040BD11 /* LaunchScreen.storyboard */,
@@ -183,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9263E6EF22816B0E0040BD11 /* ViewController.m in Sources */,
+				9263E7222283C35F0040BD11 /* EYHealthKitViewController.m in Sources */,
 				9263E6FA22816B100040BD11 /* main.m in Sources */,
 				9263E71D2282CE200040BD11 /* EYPedometerViewController.m in Sources */,
 				9263E6EC22816B0E0040BD11 /* AppDelegate.m in Sources */,
@@ -332,7 +338,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CTM8P49F3V;
 				INFOPLIST_FILE = EYHealthDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -351,7 +357,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CTM8P49F3V;
 				INFOPLIST_FILE = EYHealthDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
