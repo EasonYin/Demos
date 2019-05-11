@@ -26,8 +26,6 @@
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(respondsToGesture:)];
     [self.mapView addGestureRecognizer:longPress];
-
-    [[AddressManager shared] parserGPX];
     
 }
 
@@ -51,7 +49,7 @@
 // 4、点击选中某个大头针时触发
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:(UIAlertControllerStyleActionSheet)];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"系统地图" message:@"" preferredStyle:(UIAlertControllerStyleActionSheet)];
     [alert addAction:[UIAlertAction actionWithTitle:@"设置虚拟位置" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
         [[AddressManager shared] setGPXwithLocation:view.annotation.coordinate];
     }]];

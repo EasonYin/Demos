@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <MapKit/MapKit.h>
+#import <QMapKit/QMapKit.h>
 
 @interface AppDelegate ()<CLLocationManagerDelegate>
 @property (nonatomic,strong)CLLocationManager *locationManager;
@@ -22,7 +23,7 @@
     if (![CLLocationManager locationServicesEnabled]) {
         [self showAlert:@"去设置中允许此应用定位授权"];
     }
-    
+
     self.locationManager = [[CLLocationManager alloc]init];
     self.locationManager.delegate = self;
     self.locationManager.distanceFilter = 100;
@@ -38,8 +39,15 @@
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [self.locationManager requestAlwaysAuthorization];
     [self.locationManager requestWhenInUseAuthorization];
-    
+
     [self.locationManager startUpdatingLocation];
+    
+    //腾讯地图注册key
+    [QMapServices sharedServices].APIKey = @"LCPBZ-QMFKX-TFA4D-7EBQL-NDT56-F4B33";
+    if ([QMapServices sharedServices].APIKey.length == 0)
+    {
+        NSLog(@"Please configure API key before using QMapKit.framework");
+    }
     
     return YES;
 }
