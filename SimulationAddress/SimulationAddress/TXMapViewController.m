@@ -39,18 +39,24 @@
     self.navigationItem.rightBarButtonItem = testItem;
 }
 
+- (QMapView *)mapView{
+    if (!_mapView) {
+        _mapView = [[QMapView alloc] initWithFrame:self.view.bounds];
+        _mapView.delegate = self;
+        
+        _mapView.zoomLevel = 15;
+        _mapView.rotateEnabled = NO;
+        _mapView.overlookingEnabled = NO;
+        _mapView.userTrackingMode = QUserTrackingModeFollow;
+        _mapView.showsUserLocation = YES;
+    }
+    return _mapView;
+}
+
 - (void)setupMapView
 {
-    self.mapView = [[QMapView alloc] initWithFrame:self.view.bounds];
-    self.mapView.delegate = self;
-    
-    self.mapView.zoomLevel = 15;
-    self.mapView.rotateEnabled = NO;
     
     [self.view addSubview:self.mapView];
-    
-    self.mapView.userTrackingMode = QUserTrackingModeFollow;
-    self.mapView.showsUserLocation = YES;
 
 }
 
@@ -136,6 +142,13 @@
 //    NSLog(@"%s mode = %d, animated = %d", __FUNCTION__, mode, animated);
 }
 
+- (void)mapView:(QMapView *)mapView regionDidChangeAnimated:(BOOL)animated gesture:(BOOL)bGesture{
+    
+    CGPoint point = mapView.center;
+    CLLocationCoordinate2D coordinate = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
+    
+}
+
 - (QAnnotationView *)mapView:(QMapView *)mapView viewForAnnotation:(id<QAnnotation>)annotation
 {
     if ([annotation isKindOfClass:[QPointAnnotation class]])
@@ -148,6 +161,8 @@
             annotationView = [[QPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:pointReuseIndetifier];
         }
         
+//        annotationView.canShowCallout   = YES;
+
         // 可拖拽.
         annotationView.draggable = YES;
         
@@ -166,7 +181,15 @@
 }
 
 - (void)mapView:(QMapView *)mapView didSelectAnnotationView:(QAnnotationView *)view{
-    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"腾讯地图" message:@"" preferredStyle:(UIAlertControllerStyleActionSheet)];
+
+    [alert addAction:[UIAlertAction actionWithTitle:@"清除标记" style:(UIAlertActionStyleDestructive) handler:^(UIAlertAction * _Nonnull action) {
+        [mapView removeAnnotation:view.annotation];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
+        [mapView deselectAnnotation:view.annotation animated:YES];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)mapView:(QMapView *)mapView annotationView:(QAnnotationView *)view didChangeDragState:(QAnnotationViewDragState)newState fromOldState:(QAnnotationViewDragState)oldState{

@@ -23,12 +23,19 @@
 		9223D46422782E0400211B4F /* HZxh.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9223D46322782E0400211B4F /* HZxh.gpx */; };
 		9242CB9A227E80C900355585 /* coco.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9242CB99227E80C900355585 /* coco.gpx */; };
 		9263E719228292C50040BD11 /* LT.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9263E718228292C50040BD11 /* LT.gpx */; };
+		926593D0228913CA006B5715 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 926593CF228913CA006B5715 /* libz.tbd */; };
+		926593D2228913D0006B5715 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926593D1228913D0006B5715 /* SystemConfiguration.framework */; };
+		926593D4228913D6006B5715 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926593D3228913D6006B5715 /* QuartzCore.framework */; };
+		926593D6228913DE006B5715 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926593D5228913DE006B5715 /* CoreLocation.framework */; };
+		926593D8228913E5006B5715 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926593D7228913E5006B5715 /* Foundation.framework */; };
+		926593DA228913EC006B5715 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926593D9228913EC006B5715 /* CoreGraphics.framework */; };
+		926593DC228915F9006B5715 /* QMapKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 926593DB228915F9006B5715 /* QMapKit.bundle */; };
+		926593DF22891847006B5715 /* SystemMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926593DE22891847006B5715 /* SystemMapViewController.m */; };
 		C106FB4C227B0A3A00A8F950 /* BJat.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C106FB4B227B0A3A00A8F950 /* BJat.gpx */; };
 		C1F93AFD2287218D009C9D3C /* QMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F93AFC2287218D009C9D3C /* QMapKit.framework */; };
 		C1F93B00228723E0009C9D3C /* TXMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F93AFF228723E0009C9D3C /* TXMapViewController.m */; };
 		C1F93B02228726F7009C9D3C /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F93B01228726F7009C9D3C /* libsqlite3.0.tbd */; };
 		C1F93B0422872703009C9D3C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F93B0322872702009C9D3C /* libc++.tbd */; };
-		C1F93B0622872732009C9D3C /* QMapKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C1F93B0522872732009C9D3C /* QMapKit.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,13 +63,21 @@
 		9223D46322782E0400211B4F /* HZxh.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HZxh.gpx; sourceTree = "<group>"; };
 		9242CB99227E80C900355585 /* coco.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = coco.gpx; sourceTree = "<group>"; };
 		9263E718228292C50040BD11 /* LT.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LT.gpx; sourceTree = "<group>"; };
+		926593CF228913CA006B5715 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		926593D1228913D0006B5715 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		926593D3228913D6006B5715 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		926593D5228913DE006B5715 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		926593D7228913E5006B5715 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		926593D9228913EC006B5715 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		926593DB228915F9006B5715 /* QMapKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = QMapKit.bundle; path = QMapKit.framework/QMapKit.bundle; sourceTree = "<group>"; };
+		926593DD22891847006B5715 /* SystemMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemMapViewController.h; sourceTree = "<group>"; };
+		926593DE22891847006B5715 /* SystemMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SystemMapViewController.m; sourceTree = "<group>"; };
 		C106FB4B227B0A3A00A8F950 /* BJat.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BJat.gpx; sourceTree = "<group>"; };
 		C1F93AFC2287218D009C9D3C /* QMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QMapKit.framework; sourceTree = "<group>"; };
 		C1F93AFE228723E0009C9D3C /* TXMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXMapViewController.h; sourceTree = "<group>"; };
 		C1F93AFF228723E0009C9D3C /* TXMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXMapViewController.m; sourceTree = "<group>"; };
 		C1F93B01228726F7009C9D3C /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		C1F93B0322872702009C9D3C /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		C1F93B0522872732009C9D3C /* QMapKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = QMapKit.bundle; path = QMapKit.framework/QMapKit.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +85,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				926593DA228913EC006B5715 /* CoreGraphics.framework in Frameworks */,
+				926593D8228913E5006B5715 /* Foundation.framework in Frameworks */,
+				926593D6228913DE006B5715 /* CoreLocation.framework in Frameworks */,
+				926593D4228913D6006B5715 /* QuartzCore.framework in Frameworks */,
+				926593D2228913D0006B5715 /* SystemConfiguration.framework in Frameworks */,
+				926593D0228913CA006B5715 /* libz.tbd in Frameworks */,
 				C1F93B0422872703009C9D3C /* libc++.tbd in Frameworks */,
 				C1F93B02228726F7009C9D3C /* libsqlite3.0.tbd in Frameworks */,
 				C1F93AFD2287218D009C9D3C /* QMapKit.framework in Frameworks */,
@@ -107,6 +128,8 @@
 				9223D406227549D400211B4F /* AppDelegate.m */,
 				9223D408227549D400211B4F /* ViewController.h */,
 				9223D409227549D400211B4F /* ViewController.m */,
+				926593DD22891847006B5715 /* SystemMapViewController.h */,
+				926593DE22891847006B5715 /* SystemMapViewController.m */,
 				C1F93AFE228723E0009C9D3C /* TXMapViewController.h */,
 				C1F93AFF228723E0009C9D3C /* TXMapViewController.m */,
 				9223D40B227549D400211B4F /* Main.storyboard */,
@@ -121,6 +144,12 @@
 		9223D41D22754C9600211B4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				926593D9228913EC006B5715 /* CoreGraphics.framework */,
+				926593D7228913E5006B5715 /* Foundation.framework */,
+				926593D5228913DE006B5715 /* CoreLocation.framework */,
+				926593D3228913D6006B5715 /* QuartzCore.framework */,
+				926593D1228913D0006B5715 /* SystemConfiguration.framework */,
+				926593CF228913CA006B5715 /* libz.tbd */,
 				C1F93B0322872702009C9D3C /* libc++.tbd */,
 				C1F93B01228726F7009C9D3C /* libsqlite3.0.tbd */,
 				9223D4272275591400211B4F /* libxml2.2.tbd */,
@@ -152,7 +181,7 @@
 		C1F93AFB2287218D009C9D3C /* sdk */ = {
 			isa = PBXGroup;
 			children = (
-				C1F93B0522872732009C9D3C /* QMapKit.bundle */,
+				926593DB228915F9006B5715 /* QMapKit.bundle */,
 				C1F93AFC2287218D009C9D3C /* QMapKit.framework */,
 			);
 			path = sdk;
@@ -221,7 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9223D412227549D500211B4F /* LaunchScreen.storyboard in Resources */,
-				C1F93B0622872732009C9D3C /* QMapKit.bundle in Resources */,
+				926593DC228915F9006B5715 /* QMapKit.bundle in Resources */,
 				9242CB9A227E80C900355585 /* coco.gpx in Resources */,
 				9223D46422782E0400211B4F /* HZxh.gpx in Resources */,
 				9223D41C22754AF600211B4F /* test.gpx in Resources */,
@@ -246,6 +275,7 @@
 				9223D415227549D500211B4F /* main.m in Sources */,
 				9223D407227549D400211B4F /* AppDelegate.m in Sources */,
 				9223D42E227570D700211B4F /* GDataXMLNode.m in Sources */,
+				926593DF22891847006B5715 /* SystemMapViewController.m in Sources */,
 				9223D4342276918B00211B4F /* EYLocationConverter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

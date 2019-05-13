@@ -43,10 +43,14 @@
     [self.locationManager startUpdatingLocation];
     
     //腾讯地图注册key
-    [QMapServices sharedServices].APIKey = @"LCPBZ-QMFKX-TFA4D-7EBQL-NDT56-F4B33";
-    if ([QMapServices sharedServices].APIKey.length == 0)
-    {
-        NSLog(@"Please configure API key before using QMapKit.framework");
+    NSString *txKey = @"LCPBZ-QMFKX-TFA4D-7EBQL-NDT56-F4B33";
+    //3D
+    if ([[QMapServices sharedServices] respondsToSelector:@selector(APIKey)]) {
+        [[QMapServices sharedServices] performSelector:@selector(setAPIKey:) withObject:txKey];
+    }
+    //2D
+    else if ([[QMapServices sharedServices] respondsToSelector:@selector(apiKey)]){
+        [[QMapServices sharedServices] performSelector:@selector(setapiKey:) withObject:txKey];
     }
     
     return YES;
