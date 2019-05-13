@@ -32,6 +32,7 @@
 		926593DC228915F9006B5715 /* QMapKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 926593DB228915F9006B5715 /* QMapKit.bundle */; };
 		926593DF22891847006B5715 /* SystemMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926593DE22891847006B5715 /* SystemMapViewController.m */; };
 		C106FB4C227B0A3A00A8F950 /* BJat.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C106FB4B227B0A3A00A8F950 /* BJat.gpx */; };
+		C13F55EE2289C1E3003D3685 /* 白炼秋.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C13F55ED2289C1E3003D3685 /* 白炼秋.gpx */; };
 		C1F93AFD2287218D009C9D3C /* QMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F93AFC2287218D009C9D3C /* QMapKit.framework */; };
 		C1F93B00228723E0009C9D3C /* TXMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F93AFF228723E0009C9D3C /* TXMapViewController.m */; };
 		C1F93B02228726F7009C9D3C /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F93B01228726F7009C9D3C /* libsqlite3.0.tbd */; };
@@ -73,6 +74,7 @@
 		926593DD22891847006B5715 /* SystemMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemMapViewController.h; sourceTree = "<group>"; };
 		926593DE22891847006B5715 /* SystemMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SystemMapViewController.m; sourceTree = "<group>"; };
 		C106FB4B227B0A3A00A8F950 /* BJat.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BJat.gpx; sourceTree = "<group>"; };
+		C13F55ED2289C1E3003D3685 /* 白炼秋.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "白炼秋.gpx"; sourceTree = "<group>"; };
 		C1F93AFC2287218D009C9D3C /* QMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QMapKit.framework; sourceTree = "<group>"; };
 		C1F93AFE228723E0009C9D3C /* TXMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXMapViewController.h; sourceTree = "<group>"; };
 		C1F93AFF228723E0009C9D3C /* TXMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXMapViewController.m; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		9223D404227549D400211B4F /* SimulationAddress */ = {
 			isa = PBXGroup;
 			children = (
+				C13F55EC2289C19B003D3685 /* Sources */,
 				C1F93AFB2287218D009C9D3C /* sdk */,
 				9223D4202275587100211B4F /* LocationManager */,
 				9223D405227549D400211B4F /* AppDelegate.h */,
@@ -161,8 +164,6 @@
 		9223D4202275587100211B4F /* LocationManager */ = {
 			isa = PBXGroup;
 			children = (
-				9223D42C227570D700211B4F /* GDataXMLNode.h */,
-				9223D42D227570D700211B4F /* GDataXMLNode.m */,
 				9223D41B22754AF600211B4F /* test.gpx */,
 				9263E718228292C50040BD11 /* LT.gpx */,
 				C106FB4B227B0A3A00A8F950 /* BJat.gpx */,
@@ -170,12 +171,22 @@
 				9223D4602277FDA400211B4F /* BJbh.gpx */,
 				9223D435227695CE00211B4F /* Company.gpx */,
 				9242CB99227E80C900355585 /* coco.gpx */,
+				9223D42C227570D700211B4F /* GDataXMLNode.h */,
+				9223D42D227570D700211B4F /* GDataXMLNode.m */,
 				9223D424227558CF00211B4F /* AddressManager.h */,
 				9223D425227558CF00211B4F /* AddressManager.m */,
 				9223D4322276918B00211B4F /* EYLocationConverter.h */,
 				9223D4332276918B00211B4F /* EYLocationConverter.m */,
 			);
 			path = LocationManager;
+			sourceTree = "<group>";
+		};
+		C13F55EC2289C19B003D3685 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C13F55ED2289C1E3003D3685 /* 白炼秋.gpx */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		C1F93AFB2287218D009C9D3C /* sdk */ = {
@@ -255,6 +266,7 @@
 				9223D46422782E0400211B4F /* HZxh.gpx in Resources */,
 				9223D41C22754AF600211B4F /* test.gpx in Resources */,
 				C106FB4C227B0A3A00A8F950 /* BJat.gpx in Resources */,
+				C13F55EE2289C1E3003D3685 /* 白炼秋.gpx in Resources */,
 				9263E719228292C50040BD11 /* LT.gpx in Resources */,
 				9223D40F227549D500211B4F /* Assets.xcassets in Resources */,
 				9223D436227695CE00211B4F /* Company.gpx in Resources */,
