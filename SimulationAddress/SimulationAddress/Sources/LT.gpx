@@ -7,8 +7,8 @@
      Xcode will simulate a route visiting each waypoint.
      -->
     
-    <wpt lat="39.222401" lon="106.767351">
-<!--    <wpt lat="39.224130" lon="106.771632">-->
+<!--    <wpt lat="39.222401" lon="106.767351">-->
+    <wpt lat="39.224130" lon="106.771632">
 
     </wpt>
     

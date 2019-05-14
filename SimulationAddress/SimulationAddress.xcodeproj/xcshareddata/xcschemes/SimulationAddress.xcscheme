@@ -64,7 +64,7 @@
       <AdditionalOptions>
       </AdditionalOptions>
       <LocationScenarioReference
-         identifier = "../../SimulationAddress/LocationManager/test.gpx"
+         identifier = "../../SimulationAddress/Sources/test.gpx"
          referenceType = "0">
       </LocationScenarioReference>
    </LaunchAction>
