@@ -29,11 +29,10 @@
 		926593D6228913DE006B5715 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926593D5228913DE006B5715 /* CoreLocation.framework */; };
 		926593D8228913E5006B5715 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926593D7228913E5006B5715 /* Foundation.framework */; };
 		926593DA228913EC006B5715 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926593D9228913EC006B5715 /* CoreGraphics.framework */; };
-		926593DC228915F9006B5715 /* QMapKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 926593DB228915F9006B5715 /* QMapKit.bundle */; };
 		926593DF22891847006B5715 /* SystemMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926593DE22891847006B5715 /* SystemMapViewController.m */; };
+		92659417228A4B10006B5715 /* QMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92659416228A4B10006B5715 /* QMapKit.framework */; };
 		C106FB4C227B0A3A00A8F950 /* BJat.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C106FB4B227B0A3A00A8F950 /* BJat.gpx */; };
 		C13F55EE2289C1E3003D3685 /* 白炼秋.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C13F55ED2289C1E3003D3685 /* 白炼秋.gpx */; };
-		C1F93AFD2287218D009C9D3C /* QMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F93AFC2287218D009C9D3C /* QMapKit.framework */; };
 		C1F93B00228723E0009C9D3C /* TXMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F93AFF228723E0009C9D3C /* TXMapViewController.m */; };
 		C1F93B02228726F7009C9D3C /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F93B01228726F7009C9D3C /* libsqlite3.0.tbd */; };
 		C1F93B0422872703009C9D3C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F93B0322872702009C9D3C /* libc++.tbd */; };
@@ -70,12 +69,11 @@
 		926593D5228913DE006B5715 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		926593D7228913E5006B5715 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		926593D9228913EC006B5715 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		926593DB228915F9006B5715 /* QMapKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = QMapKit.bundle; path = QMapKit.framework/QMapKit.bundle; sourceTree = "<group>"; };
 		926593DD22891847006B5715 /* SystemMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemMapViewController.h; sourceTree = "<group>"; };
 		926593DE22891847006B5715 /* SystemMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SystemMapViewController.m; sourceTree = "<group>"; };
+		92659416228A4B10006B5715 /* QMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QMapKit.framework; sourceTree = "<group>"; };
 		C106FB4B227B0A3A00A8F950 /* BJat.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BJat.gpx; sourceTree = "<group>"; };
 		C13F55ED2289C1E3003D3685 /* 白炼秋.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "白炼秋.gpx"; sourceTree = "<group>"; };
-		C1F93AFC2287218D009C9D3C /* QMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QMapKit.framework; sourceTree = "<group>"; };
 		C1F93AFE228723E0009C9D3C /* TXMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXMapViewController.h; sourceTree = "<group>"; };
 		C1F93AFF228723E0009C9D3C /* TXMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXMapViewController.m; sourceTree = "<group>"; };
 		C1F93B01228726F7009C9D3C /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -88,6 +86,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				926593DA228913EC006B5715 /* CoreGraphics.framework in Frameworks */,
+				92659417228A4B10006B5715 /* QMapKit.framework in Frameworks */,
 				926593D8228913E5006B5715 /* Foundation.framework in Frameworks */,
 				926593D6228913DE006B5715 /* CoreLocation.framework in Frameworks */,
 				926593D4228913D6006B5715 /* QuartzCore.framework in Frameworks */,
@@ -95,7 +94,6 @@
 				926593D0228913CA006B5715 /* libz.tbd in Frameworks */,
 				C1F93B0422872703009C9D3C /* libc++.tbd in Frameworks */,
 				C1F93B02228726F7009C9D3C /* libsqlite3.0.tbd in Frameworks */,
-				C1F93AFD2287218D009C9D3C /* QMapKit.framework in Frameworks */,
 				9223D42B2275701A00211B4F /* libxml2.2.tbd in Frameworks */,
 				9223D41F22754C9600211B4F /* MapKit.framework in Frameworks */,
 			);
@@ -124,8 +122,8 @@
 		9223D404227549D400211B4F /* SimulationAddress */ = {
 			isa = PBXGroup;
 			children = (
+				92659415228A4B10006B5715 /* sdk */,
 				C13F55EC2289C19B003D3685 /* Sources */,
-				C1F93AFB2287218D009C9D3C /* sdk */,
 				9223D4202275587100211B4F /* LocationManager */,
 				9223D405227549D400211B4F /* AppDelegate.h */,
 				9223D406227549D400211B4F /* AppDelegate.m */,
@@ -164,13 +162,6 @@
 		9223D4202275587100211B4F /* LocationManager */ = {
 			isa = PBXGroup;
 			children = (
-				9223D41B22754AF600211B4F /* test.gpx */,
-				9263E718228292C50040BD11 /* LT.gpx */,
-				C106FB4B227B0A3A00A8F950 /* BJat.gpx */,
-				9223D46322782E0400211B4F /* HZxh.gpx */,
-				9223D4602277FDA400211B4F /* BJbh.gpx */,
-				9223D435227695CE00211B4F /* Company.gpx */,
-				9242CB99227E80C900355585 /* coco.gpx */,
 				9223D42C227570D700211B4F /* GDataXMLNode.h */,
 				9223D42D227570D700211B4F /* GDataXMLNode.m */,
 				9223D424227558CF00211B4F /* AddressManager.h */,
@@ -181,21 +172,28 @@
 			path = LocationManager;
 			sourceTree = "<group>";
 		};
+		92659415228A4B10006B5715 /* sdk */ = {
+			isa = PBXGroup;
+			children = (
+				92659416228A4B10006B5715 /* QMapKit.framework */,
+			);
+			name = sdk;
+			path = ../../../TencentMapSDK_iOS_3D_v4.2.3.1/sdk;
+			sourceTree = "<group>";
+		};
 		C13F55EC2289C19B003D3685 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				C13F55ED2289C1E3003D3685 /* 白炼秋.gpx */,
+				9223D41B22754AF600211B4F /* test.gpx */,
+				9263E718228292C50040BD11 /* LT.gpx */,
+				C106FB4B227B0A3A00A8F950 /* BJat.gpx */,
+				9223D46322782E0400211B4F /* HZxh.gpx */,
+				9223D4602277FDA400211B4F /* BJbh.gpx */,
+				9223D435227695CE00211B4F /* Company.gpx */,
+				9242CB99227E80C900355585 /* coco.gpx */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		C1F93AFB2287218D009C9D3C /* sdk */ = {
-			isa = PBXGroup;
-			children = (
-				926593DB228915F9006B5715 /* QMapKit.bundle */,
-				C1F93AFC2287218D009C9D3C /* QMapKit.framework */,
-			);
-			path = sdk;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,7 +259,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9223D412227549D500211B4F /* LaunchScreen.storyboard in Resources */,
-				926593DC228915F9006B5715 /* QMapKit.bundle in Resources */,
 				9242CB9A227E80C900355585 /* coco.gpx in Resources */,
 				9223D46422782E0400211B4F /* HZxh.gpx in Resources */,
 				9223D41C22754AF600211B4F /* test.gpx in Resources */,
@@ -432,7 +429,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CTM8P49F3V;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/SimulationAddress/sdk";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					../../TencentMapSDK_iOS_3D_v4.2.3.1/sdk,
+				);
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = SimulationAddress/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -456,7 +456,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CTM8P49F3V;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/SimulationAddress/sdk";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					../../TencentMapSDK_iOS_3D_v4.2.3.1/sdk,
+				);
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = SimulationAddress/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
