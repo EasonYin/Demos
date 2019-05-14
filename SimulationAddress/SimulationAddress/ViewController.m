@@ -20,16 +20,18 @@ typedef NS_ENUM(NSUInteger, EYShowMapType) {
     EYShowMapTypeOther,
 };
 
-@interface ViewController ()
+@interface ViewController ()<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segment;
 
 @property (nonatomic,assign) EYShowMapType showMapType;
+@property (weak, nonatomic) IBOutlet UIView *searchView;
+@property (weak, nonatomic) IBOutlet UITextField *searchField;
 
 @property (nonatomic,strong) UIView *mapView;
 @property (nonatomic,strong) SystemMapViewController *systemMapViewController;
 @property (nonatomic,strong) TXMapViewController *txMapViewController;
-
+@property (nonatomic,strong) NSMutableArray *annotations;
 @end
 
 @implementation ViewController
@@ -49,6 +51,13 @@ typedef NS_ENUM(NSUInteger, EYShowMapType) {
     return _txMapViewController;
 }
 
+- (NSMutableArray *)annotations{
+    if (!_annotations) {
+        _annotations = [NSMutableArray array];
+    }
+    return _annotations;
+}
+
 - (IBAction)segmentChange:(UISegmentedControl *)sender {
     
     self.showMapType = (EYShowMapType)sender.selectedSegmentIndex;
@@ -66,8 +75,7 @@ typedef NS_ENUM(NSUInteger, EYShowMapType) {
         {
             [self addChildViewController:self.systemMapViewController];
             self.mapView = self.systemMapViewController.mapView;
-            [self.view addSubview:self.mapView];
-            [self addGestureRecognizer];
+            
         }
             break;
             
@@ -75,14 +83,16 @@ typedef NS_ENUM(NSUInteger, EYShowMapType) {
         {
             [self addChildViewController:self.txMapViewController];
             self.mapView = self.txMapViewController.mapView;
-            [self.view addSubview:self.mapView];
-            [self addGestureRecognizer];
         }
             break;
             
         default:
             break;
     }
+    
+    [self.view addSubview:self.mapView];
+    [self addGestureRecognizer];
+    [self.view bringSubviewToFront:self.searchView];
 }
 
 - (void)handleTestAction
@@ -125,10 +135,6 @@ typedef NS_ENUM(NSUInteger, EYShowMapType) {
     self.navigationItem.rightBarButtonItem = testItem;
 }
 
-- (void)setupSearchBar{
-    
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -140,6 +146,8 @@ typedef NS_ENUM(NSUInteger, EYShowMapType) {
         self.showMapType = ((NSNumber *)[[NSUserDefaults standardUserDefaults] valueForKey:@"EYShowMapType"]).integerValue;
     }
     
+    [self.searchView setFrame:CGRectMake(0, 0, self.view.frame.size.width, 32)];
+    
     [self setUpMapView];
     
 }
@@ -148,6 +156,13 @@ typedef NS_ENUM(NSUInteger, EYShowMapType) {
 - (void)addGestureRecognizer{
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(respondsToGesture:)];
     [self.mapView addGestureRecognizer:longPress];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dotap:)];
+    [self.mapView addGestureRecognizer:tap];
+}
+
+- (void)dotap:(UITapGestureRecognizer *)sender{
+    [self.view endEditing:YES];
 }
 
 - (void)respondsToGesture:(UILongPressGestureRecognizer *)gesture {
@@ -202,6 +217,22 @@ typedef NS_ENUM(NSUInteger, EYShowMapType) {
         
     }
 }
+- (IBAction)searchField:(id)sender {
+
+    if (self.searchField.text.length <= 0) {
+        return;
+    }
+    [self getSearchResult:self.searchField.text];
+    [self.view endEditing:YES];
+}
+
+- (IBAction)search:(id)sender {
+    if (self.searchField.text.length <= 0) {
+        return;
+    }
+    [self getSearchResult:self.searchField.text];
+    [self.view endEditing:YES];
+}
 
 #pragma mark - network
 - (void)getSearchResult:(NSString *)string{
@@ -211,7 +242,32 @@ typedef NS_ENUM(NSUInteger, EYShowMapType) {
     //http://120.25.226.186:32812/login?username=123&pwd=122&type=JSON
     //https://apis.map.qq.com/ws/place/v1/search?boundary=nearby(39.908491,116.374328,1000)&keyword=KFC&page_size=20&page_index=1&orderby=_distance&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77
     
-    NSString *nearby = [NSString stringWithFormat:@"nearby(%.6f,%.6f,%.0f)",39.908491,116.374328,1000.0];
+    CLLocationCoordinate2D coordinate;
+    switch (self.showMapType) {
+        case EYShowMapTypeSystemMap:
+        {
+            // 获取用户长按手势在地图上的点
+            CGPoint point = CGPointMake(self.mapView.frame.size.width/2, self.mapView.frame.size.height/2);
+            // 将地图上的点转化为经纬度
+            coordinate = [(MKMapView *)self.mapView convertPoint:point toCoordinateFromView:(MKMapView *)self.mapView];
+            
+        }
+            break;
+            
+        case EYShowMapTypeTxMap:
+        {
+            // 获取用户长按手势在地图上的点
+            CGPoint point = CGPointMake(self.mapView.frame.size.width/2, self.mapView.frame.size.height/2);
+            // 将地图上的点转化为经纬度
+            coordinate = [(QMapView *)self.mapView convertPoint:point toCoordinateFromView:(QMapView *)self.mapView];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    NSString *nearby = [NSString stringWithFormat:@"nearby(%.6f,%.6f,%.0f)",coordinate.latitude,coordinate.longitude,10000.0];
     NSDictionary *paramDict = @{
                                 @"boundary":nearby,
                                 @"page_size":@"20",
@@ -235,10 +291,83 @@ typedef NS_ENUM(NSUInteger, EYShowMapType) {
     [manager GET:@"https://apis.map.qq.com/ws/place/v1/search" parameters:paramDict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSLog(@"%@---%@",[responseObject class],responseObject);
+        [self analyzeResponse:responseObject];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"请求失败--%@",error);
     }];
+}
+
+- (void)analyzeResponse:(id)res{
+    
+    if ([res isKindOfClass:[NSDictionary class]]) {
+        NSArray *data = res[@"data"];
+        [self.annotations removeAllObjects];
+        
+        switch (self.showMapType) {
+            case EYShowMapTypeSystemMap:
+            {
+                [data enumerateObjectsUsingBlock:^(NSDictionary*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    
+                    NSString *lat = obj[@"location"][@"lat"];
+                    NSString *lng = obj[@"location"][@"lng"];
+
+                    if (idx == 0) {
+                        
+                        CLLocationCoordinate2D firstCoordinate = CLLocationCoordinate2DMake(lat.floatValue, lng.floatValue);
+                        [(MKMapView *)self.mapView setCenterCoordinate:firstCoordinate];
+                        
+                    }
+                    
+                    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(lat.floatValue, lng.floatValue);
+                    
+                    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+                    // 配置标注数据源
+                    annotation.coordinate = coordinate;
+                    annotation.title = obj[@"title"];
+                    annotation.subtitle = obj[@"address"];
+                    [self.annotations addObject:annotation];
+                }];
+                
+                [(MKMapView *)self.mapView addAnnotations:self.annotations];
+
+            }
+                break;
+                
+            case EYShowMapTypeTxMap:
+            {
+                [data enumerateObjectsUsingBlock:^(NSDictionary*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    NSString *lat = obj[@"location"][@"lat"];
+                    NSString *lng = obj[@"location"][@"lng"];
+                    
+                    if (idx == 0) {
+                        
+                        CLLocationCoordinate2D firstCoordinate = CLLocationCoordinate2DMake(lat.floatValue, lng.floatValue);
+                        [(QMapView *)self.mapView setCenterCoordinate:firstCoordinate];
+                        
+                    }
+                    
+                    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(lat.floatValue, lng.floatValue);
+                    
+                    QPointAnnotation *annotation = [[QPointAnnotation alloc] init];
+                    // 配置标注数据源
+                    annotation.coordinate = coordinate;
+                    annotation.title = obj[@"title"];
+                    annotation.subtitle = obj[@"address"];
+                    [self.annotations addObject:annotation];
+                }];
+                
+                [(QMapView *)self.mapView addAnnotations:self.annotations];
+
+            }
+                break;
+                
+            default:
+                break;
+        }
+        
+        
+    }
 }
 
 @end

@@ -64,7 +64,9 @@
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"系统地图" message:@"" preferredStyle:(UIAlertControllerStyleActionSheet)];
-
+    [alert addAction:[UIAlertAction actionWithTitle:@"输出标记" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+        [[AddressManager shared] setGPXwithLocation:view.annotation.coordinate];
+    }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"清除标记" style:(UIAlertActionStyleDestructive) handler:^(UIAlertAction * _Nonnull action) {
         [mapView removeAnnotation:view.annotation];
     }]];
