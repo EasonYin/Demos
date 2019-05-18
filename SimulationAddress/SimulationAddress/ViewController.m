@@ -20,7 +20,7 @@ typedef NS_ENUM(NSUInteger, EYShowMapType) {
     EYShowMapTypeOther,
 };
 
-@interface ViewController ()<UITextFieldDelegate>
+@interface ViewController ()<UITextFieldDelegate,TXMapTapDelegate>
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segment;
 
@@ -36,6 +36,7 @@ typedef NS_ENUM(NSUInteger, EYShowMapType) {
 
 @implementation ViewController
 
+#pragma mark -
 - (SystemMapViewController *)systemMapViewController{
     if (!_systemMapViewController) {
         _systemMapViewController = [[SystemMapViewController alloc]init];
@@ -47,6 +48,7 @@ typedef NS_ENUM(NSUInteger, EYShowMapType) {
 - (TXMapViewController *)txMapViewController{
     if (!_txMapViewController) {
         _txMapViewController = [[TXMapViewController alloc]init];
+        _txMapViewController.delegate = self;
     }
     return _txMapViewController;
 }
@@ -58,6 +60,7 @@ typedef NS_ENUM(NSUInteger, EYShowMapType) {
     return _annotations;
 }
 
+#pragma mark - Action
 - (IBAction)segmentChange:(UISegmentedControl *)sender {
     
     self.showMapType = (EYShowMapType)sender.selectedSegmentIndex;
@@ -66,6 +69,7 @@ typedef NS_ENUM(NSUInteger, EYShowMapType) {
     
 }
 
+#pragma mark - init
 - (void)setUpMapView
 {
     [self.mapView removeFromSuperview];
@@ -122,8 +126,6 @@ typedef NS_ENUM(NSUInteger, EYShowMapType) {
     return @"我的位置";
 }
 
-#pragma mark - Setup
-
 - (void)setupNavigationBar
 {
     self.navigationController.navigationBar.translucent = NO;
@@ -152,7 +154,7 @@ typedef NS_ENUM(NSUInteger, EYShowMapType) {
     
 }
 
-#pragma mark - UILongPressGestureRecognizer
+#pragma mark - GestureRecognizer
 - (void)addGestureRecognizer{
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(respondsToGesture:)];
     [self.mapView addGestureRecognizer:longPress];
@@ -165,6 +167,10 @@ typedef NS_ENUM(NSUInteger, EYShowMapType) {
     [self.view endEditing:YES];
 }
 
+- (void)doTapTXMapView:(id)sender{
+    [self dotap:nil];
+}
+    
 - (void)respondsToGesture:(UILongPressGestureRecognizer *)gesture {
     // 当长按手势开始时，添加一个标注数据源
     if (gesture.state == UIGestureRecognizerStateBegan) {
@@ -186,6 +192,7 @@ typedef NS_ENUM(NSUInteger, EYShowMapType) {
                 [(MKMapView *)self.mapView addAnnotation:annotation];
                 
                 [[AddressManager shared] setGPXwithLocation:coordinate];
+                [[AddressManager shared] saveNewLocation:coordinate component:@"GPXFile"];
 
             }
                 break;
@@ -206,6 +213,7 @@ typedef NS_ENUM(NSUInteger, EYShowMapType) {
                 [(QMapView *)self.mapView addAnnotation:annotation];
                 
                 [[AddressManager shared] setGPXwithLocation:coordinate];
+                [[AddressManager shared] saveNewLocation:coordinate component:@"GPXFile"];
 
             }
                 break;
@@ -217,6 +225,8 @@ typedef NS_ENUM(NSUInteger, EYShowMapType) {
         
     }
 }
+    
+#pragma mark - searchMethod
 - (IBAction)searchField:(id)sender {
 
     if (self.searchField.text.length <= 0) {

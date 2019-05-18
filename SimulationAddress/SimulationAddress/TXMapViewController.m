@@ -199,4 +199,11 @@
     [[AddressManager shared] setGPXwithLocation:view.annotation.coordinate];
 
 }
+    
+- (void)mapView:(QMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate
+{
+    if ([self.delegate respondsToSelector:@selector(doTapTXMapView:)]) {
+        [self.delegate doTapTXMapView:mapView];
+    }
+}
 @end

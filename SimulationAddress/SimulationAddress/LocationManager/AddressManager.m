@@ -11,10 +11,6 @@
 
 @interface AddressManager ()<NSXMLParserDelegate>
 
-@property (nonatomic, strong) NSString *xmlFilePath;
-@property (nonatomic, strong) NSData *xmlData;
-@property (nonatomic, strong) GDataXMLDocument *doc;
-
 @end
 
 @implementation AddressManager
@@ -28,48 +24,40 @@ AddressManager *addressManager = nil;
     return addressManager;
 }
 
-- (void)parserGPX{
+#pragma mark - PublicMethod
+- (void)parserGPXWithFileName:(NSString *)fileName component:(NSString *)component{
     
-//    NSData *tempXmlData = [self readFileData:@"test.gpx"];
-//    if (!tempXmlData) {
-//        self.xmlFilePath = [[NSBundle mainBundle] pathForResource:@"test.gpx" ofType:nil];
-//        self.xmlData = [NSData dataWithContentsOfFile:self.xmlFilePath];
-//    }
-//    else{
-        self.xmlFilePath = [[self GPXPath] stringByAppendingPathComponent:@"test.gpx"];
-        self.xmlData = [self readFileData:@"test.gpx"];
-//    }
-    NSLog(@"FilePath: %@",self.xmlFilePath);
+    NSString *testFilePath = [self getGPXPathWithComponent:component];
+    NSData *testData = [self readFileData:fileName path:testFilePath];
     
     //使用NSData对象初始化
-    self.doc = [[GDataXMLDocument alloc] initWithData:self.xmlData error:nil];
+    GDataXMLDocument *testDoc = [[GDataXMLDocument alloc] initWithData:testData error:nil];
     
     //获取根节点
-    GDataXMLElement *rootElement = [self.doc rootElement];
+    GDataXMLElement *rootElement = [testDoc rootElement];
     
     //获取根节点下的节点
     NSArray *wpts = [rootElement elementsForName:@"wpt"];
     
+    //打印
     for (GDataXMLElement *wpt in wpts) {
         
         NSString *lat = [[wpt attributeForName:@"lat"] stringValue];
         NSString *lon = [[wpt attributeForName:@"lon"] stringValue];
         NSLog(@"文件中坐标 lon:%@==lat:%@",lon,lat);
     }
+    
 }
 
-- (void)setGPXwithLocation:(CLLocationCoordinate2D)location{
+- (void)editGPXFileWithLocation:(CLLocationCoordinate2D)wgs84 fileName:(NSString *)fileName path:(NSString *)path{
     
-    NSLog(@"\nGCJ-02坐标:\nlon:%.6f==lat:%.6f",location.longitude,location.latitude);
-
-    //将坐标转换
-    CLLocationCoordinate2D wgs84 = [EYLocationConverter gcj02ToWgs84:location];
+    NSData *testData = [self readFileData:fileName path:path];
     
-    NSString *showString = [NSString stringWithFormat:@"<wpt lat=\"%.6f\" lon=\"%.6f\">",wgs84.latitude,wgs84.longitude];
-    NSLog(@"\nWGS-84坐标:\n%@",showString);
-
+    //使用NSData对象初始化
+    GDataXMLDocument *testDoc = [[GDataXMLDocument alloc] initWithData:testData error:nil];
+    
     //获取根节点
-    GDataXMLElement *rootElement = [self.doc rootElement];
+    GDataXMLElement *rootElement = [testDoc rootElement];
     
     //获取根节点下的节点
     NSArray *wpts = [rootElement elementsForName:@"wpt"];
@@ -83,16 +71,41 @@ AddressManager *addressManager = nil;
     
     GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithRootElement:rootElement];
     NSData *xmlData = [doc XMLData];
-//    NSString *xmlStrrss = [[NSString alloc] initWithData:xmlData encoding:NSUTF8StringEncoding];
-//    NSLog(@"%@",xmlStrrss);
-    [self saveToDirectory:[self GPXPath] data:xmlData name:@"test.gpx"];
+    //    NSString *xmlStrrss = [[NSString alloc] initWithData:xmlData encoding:NSUTF8StringEncoding];
+    //    NSLog(@"%@",xmlStrrss);
+    [self saveToDirectory:path data:xmlData name:fileName];
 }
+    
+- (void)saveNewLocation:(CLLocationCoordinate2D)location component:(NSString *)component{
+    NSString *testFilePath = [self getGPXPathWithComponent:component];
+    NSArray *files = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:testFilePath error:nil];
+    
+    CLLocationCoordinate2D wgs84 = [EYLocationConverter gcj02ToWgs84:location];
 
-#pragma mark -
-- (NSString *)GPXPath{
+    NSString *saveString = [NSString stringWithFormat:@"<?xml version=\"1.0\"?>\n  <gpx version=\"1.1\" creator=\"Xcode\">\n  <wpt lat=\"%.6f\" lon=\"%.6f\">\n  </wpt>\n</gpx>",wgs84.latitude,wgs84.longitude];
+    NSData *testData = [saveString dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *fileName = [NSString stringWithFormat:@"%zd.gpx",files.count];
+    [self saveToDirectory:testFilePath data:testData name:fileName];
+}
+    
+- (void)setGPXwithLocation:(CLLocationCoordinate2D)location{
+    
+    NSLog(@"\nGCJ-02坐标:\nlon:%.6f==lat:%.6f",location.longitude,location.latitude);
+
+    //将坐标转换
+    CLLocationCoordinate2D wgs84 = [EYLocationConverter gcj02ToWgs84:location];
+    
+    NSString *showString = [NSString stringWithFormat:@"<wpt lat=\"%.6f\" lon=\"%.6f\">",wgs84.latitude,wgs84.longitude];
+    NSLog(@"\nWGS-84坐标:\n%@",showString);
+
+    
+}
+    
+#pragma mark - privateMethod
+- (NSString *)getGPXPathWithComponent:(NSString *)component{
     NSString *document = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
-    NSString *path = [document stringByAppendingPathComponent:@"GPXFile"];
+    NSString *path = [document stringByAppendingPathComponent:component];
     
     NSFileManager *manager = [NSFileManager defaultManager];
     
@@ -104,9 +117,9 @@ AddressManager *addressManager = nil;
     return path;
 }
 
-- (NSData *)readFileData:(NSString *)fileName
+- (NSData *)readFileData:(NSString *)fileName path:(NSString *)path
 {
-    NSString *appFile = [[self GPXPath] stringByAppendingPathComponent:fileName];
+    NSString *appFile = [path stringByAppendingPathComponent:fileName];
     NSData *data = [[NSData alloc]initWithContentsOfFile:appFile];
     return data;
 }

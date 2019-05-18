@@ -11,7 +11,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol TXMapTapDelegate <NSObject>
+
+- (void)doTapTXMapView:(id)sender;
+
+@end
+
 @interface TXMapViewController : ViewController<QMapViewDelegate>
+@property (nonatomic,weak) id<TXMapTapDelegate> delegate;
 @property (nonatomic, strong, readonly) QMapView *mapView;
 
 @end
