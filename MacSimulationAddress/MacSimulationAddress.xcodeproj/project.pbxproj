@@ -32,6 +32,11 @@
 		9223D45D22770B6500211B4F /* EYLocationConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EYLocationConverter.m; sourceTree = "<group>"; };
 		9242CB9B227E87F100355585 /* EYWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EYWindowController.h; sourceTree = "<group>"; };
 		9242CB9C227E87F100355585 /* EYWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EYWindowController.m; sourceTree = "<group>"; };
+		92463D9B22C1CD7B00A6444E /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		92463D9D22C1CD9C00A6444E /* libboringssl.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libboringssl.tbd; path = usr/lib/libboringssl.tbd; sourceTree = SDKROOT; };
+		92463D9F22C1CDE200A6444E /* liblibimobiledevice.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = liblibimobiledevice.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		92463DA122C1CDE200A6444E /* liblibplist.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = liblibplist.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		92463DA322C1CDE200A6444E /* libusbmuxd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libusbmuxd.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6690FD2468FB7457CD75636 /* libPods-MacSimulationAddress.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MacSimulationAddress.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D86BD5C86CA603DB244CD32C /* Pods-MacSimulationAddress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacSimulationAddress.release.xcconfig"; path = "Pods/Target Support Files/Pods-MacSimulationAddress/Pods-MacSimulationAddress.release.xcconfig"; sourceTree = "<group>"; };
 		F7B07E34C24576D94F73819D /* Pods-MacSimulationAddress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacSimulationAddress.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MacSimulationAddress/Pods-MacSimulationAddress.debug.xcconfig"; sourceTree = "<group>"; };
@@ -98,6 +103,11 @@
 		9223D4572276E63300211B4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				92463D9F22C1CDE200A6444E /* liblibimobiledevice.a */,
+				92463DA122C1CDE200A6444E /* liblibplist.a */,
+				92463DA322C1CDE200A6444E /* libusbmuxd.a */,
+				92463D9D22C1CD9C00A6444E /* libboringssl.tbd */,
+				92463D9B22C1CD7B00A6444E /* libxml2.tbd */,
 				D6690FD2468FB7457CD75636 /* libPods-MacSimulationAddress.a */,
 			);
 			name = Frameworks;
@@ -381,6 +391,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = CTM8P49F3V;
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = MacSimulationAddress/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -403,6 +414,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = CTM8P49F3V;
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = MacSimulationAddress/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

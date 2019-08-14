@@ -1,0 +1,23 @@
+{
+  "name": "EYQRCodeTools",
+  "version": "0.1.0",
+  "summary": "A short description of EYQRCodeTools.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/huadong2593@163.com/EYQRCodeTools",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "huadong2593@163.com": "yinhuadong@jd.com"
+  },
+  "source": {
+    "git": "https://github.com/huadong2593@163.com/EYQRCodeTools.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "EYQRCodeTools/Classes/**/*",
+  "resources": "EYQRCodeTools/Assets/*.xcassets"
+}

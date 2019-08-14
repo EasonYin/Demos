@@ -1,0 +1,6 @@
+framework module Pods_EYQRCodeTools_Tests {
+  umbrella header "Pods-EYQRCodeTools_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

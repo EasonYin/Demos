@@ -23,6 +23,13 @@
 
 }
 
+void runSystemCommand(NSString *cmd)
+{
+    [[NSTask launchedTaskWithLaunchPath:@"/bin/sh"
+                              arguments:[NSArray arrayWithObjects:@"-c", cmd, nil]]
+     waitUntilExit];
+}
+
 - (IBAction)findMe:(id)sender {
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"findMe" object:nil];
