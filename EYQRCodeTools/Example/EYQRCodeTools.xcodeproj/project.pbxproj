@@ -68,7 +68,6 @@
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		929A6F5E2303EC1100148260 /* EYGenerationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EYGenerationViewController.h; sourceTree = "<group>"; };
 		929A6F5F2303EC1100148260 /* EYGenerationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EYGenerationViewController.m; sourceTree = "<group>"; };
-		929A6F632304107900148260 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../EYQRCodeTools/Assets/Images.xcassets; sourceTree = "<group>"; };
 		97B3D85451442535B4B39A42 /* EYQRCodeTools.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = EYQRCodeTools.podspec; path = ../EYQRCodeTools.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CF9692698496A3F84D45E81D /* Pods-EYQRCodeTools_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EYQRCodeTools_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EYQRCodeTools_Example/Pods-EYQRCodeTools_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,7 +112,6 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
-				929A6F632304107900148260 /* Images.xcassets */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for EYQRCodeTools */,
 				6003F5B5195388D20070C39A /* Tests */,
