@@ -103,7 +103,7 @@
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     
-    if (!touchPhotoBtn && navHidden) {
+    if (!touchPhotoBtn && !navHidden) {
         [self.navigationController setNavigationBarHidden:NO animated:NO];
     }
 }
