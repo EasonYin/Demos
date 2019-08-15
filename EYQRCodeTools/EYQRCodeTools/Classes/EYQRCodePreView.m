@@ -195,7 +195,7 @@
 
 - (void)startIndicating {
     
-    [_indicatorView stopAnimating];
+    [_indicatorView startAnimating];
 }
 
 - (void)stopIndicating {

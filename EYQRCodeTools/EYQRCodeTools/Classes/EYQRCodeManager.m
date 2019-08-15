@@ -137,9 +137,10 @@ static NSString *EYInputCorrectionLevelH = @"H";//!< H: 30%
     
     if (_session && !_session.isRunning) {
         [_session startRunning];
-        [_previewView startScanning];
     }
     
+    [_previewView startScanning];
+
     __weak typeof(self) weakSelf = self;
     [self observeLightStatus:^(BOOL dimmed, BOOL torchOn) {
         if (dimmed || torchOn) {
