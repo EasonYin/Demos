@@ -90,7 +90,6 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    navHidden = self.navigationController.navigationBarHidden;
     if (!navHidden) {
         [self.navigationController setNavigationBarHidden:YES animated:NO];
     }
@@ -111,6 +110,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    navHidden = self.navigationController.navigationBarHidden;
+
 }
 
 - (void)setTitle:(NSString *)title{
