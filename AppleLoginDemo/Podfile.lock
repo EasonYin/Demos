@@ -1,0 +1,16 @@
+PODS:
+  - SSKeychain (1.4.1)
+
+DEPENDENCIES:
+  - SSKeychain
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SSKeychain
+
+SPEC CHECKSUMS:
+  SSKeychain: 55cc80f66f5c73da827e3077f02e43528897db41
+
+PODFILE CHECKSUM: d4ec3e1eca6758a667bc7c3e0297c387fdaf05c4
+
+COCOAPODS: 1.7.5
