@@ -64,6 +64,27 @@
 #pragma mark - ASAuthorizationControllerDelegate
 - (void)authorizationController:(ASAuthorizationController *)controller didCompleteWithError:(NSError *)error{
     NSLog(@"error:%@",error);
+    NSString *errorMsg = nil;
+    switch (error.code) {
+        case ASAuthorizationErrorCanceled:
+            errorMsg = @"用户取消了授权请求";
+            break;
+        case ASAuthorizationErrorFailed:
+            errorMsg = @"授权请求失败";
+            break;
+        case ASAuthorizationErrorInvalidResponse:
+            errorMsg = @"授权请求响应无效";
+            break;
+        case ASAuthorizationErrorNotHandled:
+            errorMsg = @"未能处理授权请求";
+            break;
+        case ASAuthorizationErrorUnknown:
+            errorMsg = @"授权请求失败未知原因";
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (void)authorizationController:(ASAuthorizationController *)controller didCompleteWithAuthorization:(ASAuthorization *)authorization{
@@ -73,11 +94,17 @@
     if ([authorization.credential isKindOfClass:[ASAuthorizationAppleIDCredential class]]){
         ASAuthorizationAppleIDCredential *appleIDCredential = authorization.credential;
         if (appleIDCredential){
-            NSString *userIdentifier = appleIDCredential.user;
-            NSPersonNameComponents *fullName = appleIDCredential.fullName;
-            NSString *email = appleIDCredential.email;
             
-            [SSKeychain setPassword:userIdentifier forService:ServerceName account:Account];
+            NSString *user = appleIDCredential.user;
+            NSPersonNameComponents *fullName = appleIDCredential.fullName;
+            NSString *familyName = appleIDCredential.fullName.familyName;
+            NSString *givenName = appleIDCredential.fullName.givenName;
+            NSString *email = appleIDCredential.email;
+            NSData *identityToken = appleIDCredential.identityToken;
+            NSData *authorizationCode = appleIDCredential.authorizationCode;
+            ASUserDetectionStatus realUserStatus = appleIDCredential.realUserStatus;
+            
+            [SSKeychain setPassword:user forService:ServerceName account:Account];
             
             
         }
