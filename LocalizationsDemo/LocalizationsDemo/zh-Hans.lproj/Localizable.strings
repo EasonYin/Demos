@@ -1,0 +1,8 @@
+/* 
+  Localizable.strings
+  LocalizationsDemo
+
+*/
+"title" = "国际化Demo";
+"click" = "点击";
+"image" = "image_ch";

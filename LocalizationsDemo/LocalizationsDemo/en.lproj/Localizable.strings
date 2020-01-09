@@ -1,0 +1,8 @@
+/* 
+  Localizable.strings
+  LocalizationsDemo
+
+*/
+"title" = "LocalizationsDemo";
+"click" = "hit";
+"image" = "image_en";
