@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+
+#import "UIStatusBarManager+TapAction.h"
+
 @interface AppDelegate ()
 
 @end
@@ -32,6 +35,27 @@
 //    [self.window makeKeyAndVisible];
     
     return YES;
+}
+
+#pragma mark - Status Bar Touch Event
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+
+    NSLog(@"Touch Event!");
+    
+    CGPoint touchLocation = [[[event allTouches] anyObject] locationInView:self.window];
+    CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
+    
+    if (CGRectContainsPoint(statusBarFrame, touchLocation))
+    {
+        [self statusBarTouchedAction];
+    }
+}
+
+- (void)statusBarTouchedAction {
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"statusBarTappedNotification" object:nil];
 }
 
 

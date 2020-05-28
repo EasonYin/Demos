@@ -20,11 +20,18 @@
     self.title = @"ViewController";
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusBarAction:) name:@"statusBarTappedNotification" object:nil];
+
     [self addNomalView];
     
     [self addSepicalView];
     
     [self addFloatView];
+}
+
+- (void)statusBarAction:(NSNotification *)noti{
+    //your code
+    NSLog(@"Touch StatusBar!");
 }
 
 - (void)addNomalView{
