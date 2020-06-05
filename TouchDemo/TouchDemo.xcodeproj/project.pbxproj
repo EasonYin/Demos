@@ -14,6 +14,7 @@
 		92037DD5226430C300AECB74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92037DD3226430C300AECB74 /* LaunchScreen.storyboard */; };
 		92037DD8226430C300AECB74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92037DD7226430C300AECB74 /* main.m */; };
 		92037DE0226430EF00AECB74 /* FloatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92037DDF226430EF00AECB74 /* FloatView.m */; };
+		9239D01C248A3E54003F65BC /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9239D01B248A3E54003F65BC /* TestViewController.m */; };
 		929295A4247F587500CF7726 /* UIStatusBarManager+TapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 929295A3247F587500CF7726 /* UIStatusBarManager+TapAction.m */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,8 @@
 		92037DD7226430C300AECB74 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		92037DDE226430EF00AECB74 /* FloatView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FloatView.h; sourceTree = "<group>"; };
 		92037DDF226430EF00AECB74 /* FloatView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FloatView.m; sourceTree = "<group>"; };
+		9239D01A248A3E54003F65BC /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		9239D01B248A3E54003F65BC /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		929295A2247F587500CF7726 /* UIStatusBarManager+TapAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIStatusBarManager+TapAction.h"; sourceTree = "<group>"; };
 		929295A3247F587500CF7726 /* UIStatusBarManager+TapAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIStatusBarManager+TapAction.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,6 +71,8 @@
 				92037DC9226430C200AECB74 /* AppDelegate.m */,
 				92037DCB226430C200AECB74 /* ViewController.h */,
 				92037DCC226430C200AECB74 /* ViewController.m */,
+				9239D01A248A3E54003F65BC /* TestViewController.h */,
+				9239D01B248A3E54003F65BC /* TestViewController.m */,
 				92037DDE226430EF00AECB74 /* FloatView.h */,
 				92037DDF226430EF00AECB74 /* FloatView.m */,
 				92037DCE226430C200AECB74 /* Main.storyboard */,
@@ -151,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9239D01C248A3E54003F65BC /* TestViewController.m in Sources */,
 				92037DCD226430C200AECB74 /* ViewController.m in Sources */,
 				92037DD8226430C300AECB74 /* main.m in Sources */,
 				929295A4247F587500CF7726 /* UIStatusBarManager+TapAction.m in Sources */,

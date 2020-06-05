@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "FloatView.h"
+#import "TestViewController.h"
+
 @interface ViewController ()
 
 @end
@@ -20,18 +22,29 @@
     self.title = @"ViewController";
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusBarAction:) name:@"statusBarTappedNotification" object:nil];
-
     [self addNomalView];
     
     [self addSepicalView];
     
     [self addFloatView];
+    
+    [self setNavBtn];
 }
 
-- (void)statusBarAction:(NSNotification *)noti{
-    //your code
-    NSLog(@"Touch StatusBar!");
+- (void)setNavBtn
+{
+    UIButton *btn = [UIButton buttonWithType:(UIButtonTypeSystem)];
+    btn.frame = CGRectMake(0, 0, 44, 44);
+    [btn setTitle:@"statusBar" forState:(UIControlStateNormal)];
+    [btn addTarget:self action:@selector(doNavAction:) forControlEvents:(UIControlEventTouchUpInside)];
+    UIBarButtonItem *bar = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    self.navigationItem.rightBarButtonItem = bar;
+}
+
+- (void)doNavAction:(id)sender
+{
+    TestViewController *vc = [[TestViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)addNomalView{
